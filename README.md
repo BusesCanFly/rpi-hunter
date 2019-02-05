@@ -13,7 +13,7 @@ rpi-hunter is  useful when there are multiple Raspberry Pi's on your LAN with de
 2. Download rpi-hunter: `git clone https://github.com/BusesCanFly/rpi-hunter`
 3. Navigate to rpi-hunter: `cd ./rpi-hunter`
 4. Make rpi-hunter.py executable: `chmod +x rpi-hunter.py`
-* One line variant: sudo pip install -U argparse termcolor && sudo apt -y install arp-scan tshark sshpass && git clone https://github.com/BusesCanFly/rpi-hunter && cd ./rpi-hunter && chmod +x rpi-hunter.py
+* One line variant: `sudo pip install -U argparse termcolor && sudo apt -y install arp-scan tshark sshpass && git clone https://github.com/BusesCanFly/rpi-hunter && cd ./rpi-hunter && chmod +x rpi-hunter.py`
 
 ## Usage
 ```
