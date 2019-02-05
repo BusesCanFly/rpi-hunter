@@ -1,6 +1,8 @@
 # rpi-hunter
 Automate discovering all Raspberry Pi's on a LAN and drop a payload via ssh (using default creds)
 
+![alt text](https://github.com/BusesCanFly/rpi-hunter/blob/master/screenshot.png "Who doesn't love ASCII art?")
+
 This tool can be useful for when there are multiple Raspberry Pi's on your LAN with default or known credentials, in order to automate sending commands to them.
 
 # GUIDE:
