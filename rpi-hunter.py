@@ -4,7 +4,7 @@ import os
 import argparse
 from termcolor import colored, cprint
 
-main_color='green'
+main_color='yellow'
 sub_color='blue'
 line_color='red'
 
