@@ -1,5 +1,5 @@
 # rpi-hunter
-Automate discovering all Raspberry Pi's on a LAN and drop a payload via ssh (using default creds)
+Automate discovering all Raspberry Pi's on a LAN and dropping payloads via ssh
 
 ![alt text](https://github.com/BusesCanFly/rpi-hunter/blob/master/screenshot.png "Who doesn't love ASCII art?")
 
@@ -27,7 +27,7 @@ optional arguments:
   -f IP_LIST         IP list to use (Default ./scan/RPI_list)
   -c CREDS           Password to use when ssh'ing
   --list             List avalible payloads
-  --payload PAYLOAD  (Name of or raw) Payload [ex. whoami or reverse_shell
+  --payload PAYLOAD  (Name of or raw) Payload [ex. whoami or reverse_shell]
   -H HOST            (If using reverse_shell payload) Host for reverse shell
   -P PORT            (If using reverse_shell payload) Port for reverse shell
   --safe             Print sshpass command, but don't execute it
