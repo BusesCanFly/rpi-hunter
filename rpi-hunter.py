@@ -4,6 +4,21 @@ import os
 import argparse
 from termcolor import colored, cprint
 
+main_color='green'
+sub_color='blue'
+line_color='red'
+print '\n'
+cprint("██████╗ ██████╗ ██╗      ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ", main_color)
+cprint("██╔══██╗██╔══██╗██║      ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗", main_color)
+cprint("██████╔╝██████╔╝██║█████╗███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝", main_color)
+cprint("██╔══██╗██╔═══╝ ██║╚════╝██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗", main_color)
+cprint("██║  ██║██║     ██║      ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║", main_color)
+cprint("╚═╝  ╚═╝╚═╝     ╚═╝      ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝", main_color)
+cprint("-----------------------------------------------------------------------------", line_color)
+cprint("      BusesCanFly                                           76 32 2e 30      ", sub_color)
+cprint("-----------------------------------------------------------------------------", line_color)
+print '\n'
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--no-scan', dest='no_scan', action='store_true',
                     help='Disable ARP scanning')
