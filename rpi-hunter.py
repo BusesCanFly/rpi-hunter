@@ -7,17 +7,6 @@ from termcolor import colored, cprint
 main_color='green'
 sub_color='blue'
 line_color='red'
-print '\n'
-cprint("██████╗ ██████╗ ██╗      ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ", main_color)
-cprint("██╔══██╗██╔══██╗██║      ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗", main_color)
-cprint("██████╔╝██████╔╝██║█████╗███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝", main_color)
-cprint("██╔══██╗██╔═══╝ ██║╚════╝██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗", main_color)
-cprint("██║  ██║██║     ██║      ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║", main_color)
-cprint("╚═╝  ╚═╝╚═╝     ╚═╝      ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝", main_color)
-cprint("-----------------------------------------------------------------------------", line_color)
-cprint("      BusesCanFly                                           76 32 2e 30      ", sub_color)
-cprint("-----------------------------------------------------------------------------", line_color)
-print '\n'
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--no-scan', dest='no_scan', action='store_true',
@@ -43,6 +32,8 @@ parser.add_argument('-P', dest='port', type=str,
 
 parser.add_argument('--safe', action='store_true',
 		   help='Print sshpass command, but don\'t execute it')
+parser.add_argument('-q', dest='quiet', action='store_true',
+                   help='Don\'t print banner')
 args = parser.parse_args()
 
 #payload= 'echo "raspberry" | sudo -S whoami'
@@ -101,8 +92,25 @@ def RPI():
 		i+=1
 	exit
 
+def art():
+        print '\n'
+        cprint("██████╗ ██████╗ ██╗      ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ", main_color)
+        cprint("██╔══██╗██╔══██╗██║      ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗", main_color)
+        cprint("██████╔╝██████╔╝██║█████╗███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝", main_color)
+        cprint("██╔══██╗██╔═══╝ ██║╚════╝██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗", main_color)
+        cprint("██║  ██║██║     ██║      ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║", main_color)
+        cprint("╚═╝  ╚═╝╚═╝     ╚═╝      ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝", main_color)
+        cprint("-----------------------------------------------------------------------------", line_color)
+        cprint("      BusesCanFly                                           76 32 2e 30      ", sub_color)
+        cprint("-----------------------------------------------------------------------------", line_color)
+        print '\n'
+
+if not args.quiet:
+	art()
+
 if args.list:
 	list()
 else:
 	scan()
-	RPI()
+       	RPI()
+
