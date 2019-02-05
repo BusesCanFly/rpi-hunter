@@ -34,7 +34,7 @@ parser.add_argument('-c', dest='creds', type=str, default='raspberry',
 parser.add_argument('--list', action='store_true',
                    help='List avalible payloads')
 parser.add_argument('--payload', type=str, default='whoami',
-		    help='(Name of or raw) Payload [ex. whoami or reverse_shell')
+		    help='(Name of or raw) Payload [ex. whoami or reverse_shell]')
 
 parser.add_argument('-H', dest='host', type=str,
                     help='(If using reverse_shell payload) Host for reverse shell')
@@ -68,6 +68,7 @@ def list():
 	print colored("Specify with --payload", "green"), colored("name\n", "yellow")
 	for key,value in payloads.items():
 		print colored('['+key+']', 'yellow'), colored(value, 'white')
+	print '\n'
 
 def scan():
 	if not args.no_scan and not args.safe:
