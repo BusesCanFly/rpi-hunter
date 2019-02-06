@@ -1,5 +1,5 @@
 # rpi-hunter
-Automate discovering all Raspberry Pi's on a LAN and dropping payloads via ssh
+Automate discovering and dropping payloads on LAN Raspberry Pi's via ssh
 
 ![alt text](https://github.com/BusesCanFly/rpi-hunter/blob/master/screenshot.png "Who doesn't love ASCII art?")
 
