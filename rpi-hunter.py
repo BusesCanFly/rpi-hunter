@@ -32,7 +32,7 @@ parser.add_argument('-P', dest='port', type=str,
 parser.add_argument('--safe', action='store_true',
 		   help='Print sshpass command, but don\'t execute it')
 parser.add_argument('-q', dest='quiet', action='store_true',
-                   help='Don\'t print banner')
+                   help='Don\'t print banner or ARP scan output')
 args = parser.parse_args()
 
 #payload= 'echo "raspberry" | sudo -S whoami'
@@ -53,6 +53,12 @@ if args.payload in payloads:
 else:
 	payload=args.payload
 
+global quiet
+if args.quiet:
+	quiet=' &>/dev/null'
+else:
+	quiet=''
+
 def list():
         l=0
         cprint("Payloads:", "green")
@@ -63,7 +69,7 @@ def list():
 
 def scan():
 	if not args.no_scan and not args.safe:
-                os.system('sudo arp-scan -g '+args.ip_range+' -W ./scan/scan.pcap')
+		os.system('sudo arp-scan -g '+args.ip_range+' -W ./scan/scan.pcap'+quiet)
                 os.system('tshark -r ./scan/scan.pcap > ./scan/pcap.txt 2>/dev/null')
                 os.system('cat ./scan/pcap.txt | grep -i "Rasp" > ./scan/raspi_list')
                 os.system('awk \'{print $8}\' ./scan/raspi_list > ./scan/RPI_list')
