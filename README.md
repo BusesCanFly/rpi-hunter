@@ -23,7 +23,7 @@ usage: rpi-hunter.py [-h] [--list] [--no-scan] [-r IP_RANGE] [-f IP_LIST]
 
 optional arguments:
   -h, --help         show this help message and exit
-  --list             List avalible payloads
+  --list             List available payloads
   --no-scan          Disable ARP scanning
   -r IP_RANGE        IP range to scan
   -f IP_LIST         IP list to use (Default ./scan/RPI_list)
