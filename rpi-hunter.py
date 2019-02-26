@@ -8,7 +8,7 @@ main_color='yellow'
 sub_color='blue'
 line_color='red'
 
-parser = argparse.argumentparser()
+parser = argparse.ArgumentParser()
 parser.add_argument('--list', action='store_true',
 		help='list available payloads')
 parser.add_argument('--no-scan', dest='no_scan', action='store_true',
@@ -26,9 +26,9 @@ parser.add_argument('-c', dest='creds', type=str, default='raspberry',
 parser.add_argument('--payload', type=str, default='whoami',
 		help='(name of, or raw) payload [ex. reverse_shell or \'whoami\']')
 
-parser.add_argument('-h', dest='host', type=str,
+parser.add_argument('-H', dest='host', type=str,
 		help='(if using reverse_shell payload) host for reverse shell')
-parser.add_argument('-p', dest='port', type=str,
+parser.add_argument('-P', dest='port', type=str,
 		help='(if using reverse_shell payload) port for reverse shell')
 
 parser.add_argument('--safe', action='store_true',
