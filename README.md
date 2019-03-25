@@ -1,5 +1,8 @@
 # rpi-hunter
+Auto exploit LAN raspberry pi's
 Automate discovering and dropping payloads on LAN Raspberry Pi's via ssh
+Or, the honest title: Automating sshpass for command delivery.
+
 
 ![alt text](https://github.com/BusesCanFly/rpi-hunter/blob/master/screenshot.png "Who doesn't love ASCII art?")
 
