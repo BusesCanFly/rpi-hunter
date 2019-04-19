@@ -18,6 +18,12 @@ Rpi-hunter is  useful when there are multiple Raspberry Pi's on your LAN with de
 * One line variant: `sudo pip install -U argparse termcolor && sudo apt -y install arp-scan tshark sshpass && git clone https://github.com/BusesCanFly/rpi-hunter && cd ./rpi-hunter && chmod +x rpi-hunter.py`
 
 ## Usage
+
+Check out this sweet video made by the people over at NullByte!
+![](https://www.youtube.com/watch?v=qApJyIkDYvQ)
+And the accompanying [write-up](https://null-byte.wonderhowto.com/how-to/discover-attack-raspberry-pis-using-default-credentials-with-rpi-hunter-0193855/)
+	* Note: For the new people, I made a few updates to rpi-hunter to fix some bugs and add some more features :) Running the command `./rpi-hunter.py` will automatically scan your whole local network and run the `whoami` command on any raspberry pi's it finds
+
 ```
 usage: rpi-hunter.py [-h] [--list] [--no-scan] [-r IP_RANGE] [-f IP_LIST]
                      [-c CREDS] [--payload PAYLOAD] [-H HOST] [-P PORT]
