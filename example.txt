@@ -1,0 +1,1 @@
+sudo python ./rpi-hunter.py -r 192.168.0.0/24 --payload ‘whoami’
